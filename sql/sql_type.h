@@ -2,7 +2,7 @@
 #define SQL_TYPE_H_INCLUDED
 /*
    Copyright (c) 2015  MariaDB Foundation.
-   Copyright (c) 2015, 2020, MariaDB Corporation.
+   Copyright (c) 2015, 2021, MariaDB Corporation.
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -45,6 +45,7 @@ class Item_param;
 class Item_cache;
 class Item_copy;
 class Item_func_or_sum;
+class Item_sum;
 class Item_sum_hybrid;
 class Item_sum_sum;
 class Item_sum_avg;
@@ -3764,6 +3765,14 @@ public:
     incompatible data type.
   */
   virtual bool is_param_long_data_type() const { return false; }
+  /*
+    The base type handler "this" is derived from.
+    "This" inherits aggregation rules from the base type handler.
+  */
+  virtual const Type_handler *type_handler_base() const
+  {
+    return NULL;
+  }
   virtual const Type_handler *type_handler_for_comparison() const= 0;
   virtual const Type_handler *type_handler_for_native_format() const
   {
