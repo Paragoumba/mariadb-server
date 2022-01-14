@@ -3549,7 +3549,7 @@ dict_stats_fetch_index_stats_step(
 				     db_utf8, sizeof(db_utf8),
 				     table_utf8, sizeof(table_utf8));
 
-			ib::info	out;
+			ib::fatal	out;
 			out << "Ignoring strange row from "
 				<< INDEX_STATS_NAME_PRINT << " WHERE"
 				" database_name = '" << db_utf8
@@ -3577,7 +3577,7 @@ dict_stats_fetch_index_stats_step(
 				     db_utf8, sizeof(db_utf8),
 				     table_utf8, sizeof(table_utf8));
 
-			ib::info	out;
+			ib::fatal	out;
 			out << "Ignoring strange row from "
 				<< INDEX_STATS_NAME_PRINT << " WHERE"
 				" database_name = '" << db_utf8
